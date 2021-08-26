@@ -31,7 +31,8 @@ export const UserProvider = ({ children }) => {
     setUser(data);
   }, []);
 
-  const addToken = (token) => {
+  const addToken = (token) => { 
+
     localStorage.setItem("userToken", token);
 
     const data = getUser();

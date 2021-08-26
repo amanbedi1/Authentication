@@ -42,6 +42,11 @@ export const SignUp = () => {
 
     signup(userInformation)
       .then((data) => {
+        if (!data) {
+          setError("Bad Request Please try again");
+          setUserInformation(initialUserInformation);
+          return;
+        }
         setError("");
         setUserInformation(initialUserInformation);
         addToken(data.token);

@@ -6,19 +6,27 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const privateKey = process.env.PrivateKey;
+const privateKey = process.env.PrivateKey; 
+
+const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 
 const registerUser = (req, res) => {
   const userCredentials = {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-  };
+  }; 
 
+   
   const { repassword } = req.body;
 
   if (userCredentials.password !== repassword) {
     return res.status(401).json({ message: "Password doesn't match" });
+  } 
+
+  if(!re.test(userCredentials.email)){  
+    return res.status(401).json({ message: "Invalid Email" });
   }
 
   const user = new Users(userCredentials);
