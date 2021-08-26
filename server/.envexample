@@ -1,0 +1,5 @@
+PORT = "PORT NUMBER"
+
+ConnectionURL = "mongodb ConnectionURL"
+
+privateKey = "Private Key for jwt"
