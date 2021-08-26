@@ -42,7 +42,7 @@ const registerUser = (req, res) => {
     const token = jwt.sign(
       { id: user_.id, username: user_.username },
       privateKey,
-      { expiresIn: 120 }
+      { expiresIn: 1200 }
     );
 
     return res
