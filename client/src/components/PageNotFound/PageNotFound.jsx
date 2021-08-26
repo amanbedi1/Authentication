@@ -18,7 +18,7 @@ const PageNotFound = () => {
       >
         The Page you are looking for was not found
       </Typography>
-      <Typography variant="h5" Falign="center" gutterBottom>
+      <Typography variant="h5" align="center" gutterBottom>
         <Button color="primary" size="large" component={Link} to="/">
           Back To Home
         </Button>
